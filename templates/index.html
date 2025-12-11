@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Student Dropout Prediction</title>
+</head>
+
+<body>
+    <h1>Student Dropout Prediction</h1>
+    <form action="/predict" method="post">
+
+        <label>Marital Status</label>
+        <select name="m_status">
+            <option value="1">Single</option>
+            <option value="2">Married</option>
+            <option value="3">Widower</option>
+            <option value="4">Divorced</option>
+            <option value="5">Common-law marriage</option>
+            <option value="6">Legally separated</option>
+        </select>
+        <br>
+
+        <label>Application Mode</label>
+        <select name="app_mode">
+            <option value="1">1st phase — general contingent</option>
+            <option value="2">Ordinance No. 612/93</option>
+            <option value="3">1st phase — special contingent (Azores Island)</option>
+            <option value="4">Holders of other higher courses</option>
+            <option value="5">Ordinance No. 854-B/99</option>
+            <option value="6">International student (bachelor)</option>
+            <option value="7">1st phase — special contingent (Madeira Island)</option>
+            <option value="8">2nd phase — general contingent</option>
+            <option value="9">3rd phase — general contingent</option>
+            <option value="10">Ordinance No. 533-A/99, item b2)</option>
+            <option value="11">Ordinance No. 533-A/99, item b3</option>
+            <option value="12">Over 23 years old</option>
+            <option value="13">Transfer</option>
+            <option value="14">Change in course</option>
+            <option value="15">Technological specialization diploma holders</option>
+            <option value="16">Change in institution/course</option>
+            <option value="17">Short cycle diploma holders</option>
+            <option value="18">Change in institution/course (International)</option>
+        </select>
+        <br>
+
+        <label>Previous Qualification</label>
+        <select name="prev_qual">
+            <option value="1">Secondary education</option>
+            <option value="2">Higher education — bachelor's degree</option>
+            <option value="3">Higher education — degree</option>
+            <option value="4">Higher education — master's degree</option>
+            <option value="5">Higher education — doctorate</option>
+            <option value="6">Frequency of higher education</option>
+            <option value="7">12th year — not completed</option>
+            <option value="8">11th year — not completed</option>
+            <option value="9">Other — 11th year of schooling</option>
+            <option value="10">10th year of schooling</option>
+            <option value="11">10th year — not completed</option>
+            <option value="12">Basic education 3rd cycle (9th–11th year)</option>
+            <option value="13">Basic education 2nd cycle (6th–8th year)</option>
+            <option value="14">Technological specialization course</option>
+            <option value="15">Higher education — degree (1st cycle)</option>
+            <option value="16">Professional higher technical course</option>
+            <option value="17">Higher education — master's degree (2nd cycle)</option>
+        </select>
+        <br>
+
+        <label>Mother's Qualification</label>
+        <select name="mother_qual">
+            <option value="1">Secondary Education — 12th Year or Equivalent</option>
+            <option value="2">Higher Education — Bachelor's degree</option>
+            <option value="3">Higher Education — Degree</option>
+            <option value="4">Higher Education — Master's degree</option>
+            <option value="5">Higher Education — Doctorate</option>
+            <option value="6">Frequency of Higher Education</option>
+            <option value="7">12th Year — Not completed</option>
+            <option value="8">11th Year — Not completed</option>
+            <option value="9">7th Year (Old)</option>
+            <option value="10">Other — 11th Year of Schooling</option>
+            <option value="11">2nd year complementary high school course</option>
+            <option value="12">10th Year of Schooling</option>
+            <option value="13">General commerce course</option>
+            <option value="14">Basic Education 3rd Cycle (9th–11th Year)</option>
+            <option value="15">Complementary High School Course</option>
+            <option value="16">Technical-professional course</option>
+            <option value="17">Complementary High School Course — Not concluded</option>
+            <option value="18">7th year of schooling</option>
+            <option value="19">2nd cycle of the general high school course</option>
+            <option value="20">9th Year of Schooling — Not completed</option>
+            <option value="21">8th year of schooling</option>
+            <option value="22">General Course of Administration and Commerce</option>
+            <option value="23">Supplementary Accounting and Administration</option>
+            <option value="24">Unknown</option>
+            <option value="25">Cannot read or write</option>
+            <option value="26">Can read without 4th year of schooling</option>
+            <option value="27">Basic Education 1st Cycle (4th/5th Year)</option>
+            <option value="28">Basic Education 2nd Cycle (6th–8th Year)</option>
+            <option value="29">Technological specialization course</option>
+            <option value="30">Higher Education — Degree (1st cycle)</option>
+            <option value="31">Specialized higher studies course</option>
+            <option value="32">Professional higher technical course</option>
+            <option value="33">Higher Education — Master's degree (2nd cycle)</option>
+            <option value="34">Higher Education — Doctorate (3rd cycle)</option>
+        </select>
+        <br>
+
+        <label>Mother's Occupation</label>
+        <select name="mother_occ">
+            <option value="1">Student</option>
+            <option value="2">Legislative/Executive/Directors/Managers</option>
+            <option value="3">Specialists in Intellectual and Scientific Activities</option>
+            <option value="4">Intermediate Level Technicians and Professions</option>
+            <option value="5">Administrative staff</option>
+            <option value="6">Personal services / Security / Sellers</option>
+            <option value="7">Skilled agriculture/fisheries/forestry</option>
+            <option value="8">Skilled industry/construction/craftsmen</option>
+            <option value="9">Machine operators / Assembly workers</option>
+            <option value="10">Unskilled workers</option>
+            <option value="11">Armed forces professions</option>
+            <option value="12">Other / Blank</option>
+            <option value="13">Armed Forces Officers</option>
+            <option value="14">Armed Forces Sergeants</option>
+            <option value="15">Other Armed Forces personnel</option>
+            <option value="16">Directors of administrative and commercial services</option>
+            <option value="17">Hotel/catering/trade/services directors</option>
+            <option value="18">Physical sciences/math/engineering specialists</option>
+            <option value="19">Health professionals</option>
+            <option value="20">Teachers</option>
+            <option value="21">Financial/admin/public relations specialists</option>
+            <option value="22">Intermediate science/engineering technicians</option>
+            <option value="23">Intermediate health technicians</option>
+            <option value="24">Intermediate legal/social/sports/cultural technicians</option>
+            <option value="25">ICT technicians</option>
+            <option value="26">Office/secretarial/data operators</option>
+            <option value="27">Accounting/statistical/registry operators</option>
+            <option value="28">Other administrative support</option>
+            <option value="29">Personal service workers</option>
+            <option value="30">Sellers</option>
+            <option value="31">Personal care workers</option>
+            <option value="32">Security/protection services</option>
+            <option value="33">Market-oriented farmers</option>
+            <option value="34">Subsistence farmers/fishers</option>
+            <option value="35">Construction workers</option>
+            <option value="36">Metalworking workers</option>
+            <option value="37">Electricity/electronics workers</option>
+            <option value="38">Food/wood/clothing craftsmen</option>
+            <option value="39">Plant/machine operators</option>
+            <option value="40">Assembly workers</option>
+            <option value="41">Vehicle drivers/equipment operators</option>
+            <option value="42">Unskilled agriculture/forestry</option>
+            <option value="43">Unskilled industry/transport</option>
+            <option value="44">Meal prep assistants</option>
+            <option value="45">Street vendors</option>
+        </select>
+        <br>
+
+        <label>Father's Occupation</label>
+        <select name="father_occ">
+            <option value="1">Student</option>
+            <option value="2">Legislative/Executive/Directors/Managers</option>
+            <option value="3">Specialists in Intellectual and Scientific Activities</option>
+            <option value="4">Intermediate Level Technicians and Professions</option>
+            <option value="5">Administrative staff</option>
+            <option value="6">Personal services / Security / Sellers</option>
+            <option value="7">Skilled agriculture/fisheries/forestry</option>
+            <option value="8">Skilled industry/construction/craftsmen</option>
+            <option value="9">Machine operators / Assembly workers</option>
+            <option value="10">Unskilled workers</option>
+            <option value="11">Armed forces professions</option>
+            <option value="12">Other / Blank</option>
+            <option value="13">Armed Forces Officers</option>
+            <option value="14">Armed Forces Sergeants</option>
+            <option value="15">Other Armed Forces personnel</option>
+            <option value="16">Directors of administrative and commercial services</option>
+            <option value="17">Hotel/catering/trade/services directors</option>
+            <option value="18">Physical sciences/math/engineering specialists</option>
+            <option value="19">Health professionals</option>
+            <option value="20">Teachers</option>
+            <option value="21">Financial/admin/public relations specialists</option>
+            <option value="22">Intermediate science/engineering technicians</option>
+            <option value="23">Intermediate health technicians</option>
+            <option value="24">Intermediate legal/social/sports/cultural technicians</option>
+            <option value="25">ICT technicians</option>
+            <option value="26">Office/secretarial/data operators</option>
+            <option value="27">Accounting/statistical/registry operators</option>
+            <option value="28">Other administrative support</option>
+            <option value="29">Personal service workers</option>
+            <option value="30">Sellers</option>
+            <option value="31">Personal care workers</option>
+            <option value="32">Security/protection services</option>
+            <option value="33">Market-oriented farmers</option>
+            <option value="34">Subsistence farmers/fishers</option>
+            <option value="35">Construction workers</option>
+            <option value="36">Metalworking workers</option>
+            <option value="37">Electricity/electronics workers</option>
+            <option value="38">Food/wood/clothing craftsmen</option>
+            <option value="39">Plant/machine operators</option>
+            <option value="40">Assembly workers</option>
+            <option value="41">Vehicle drivers/equipment operators</option>
+            <option value="42">Unskilled agriculture/forestry</option>
+            <option value="43">Unskilled industry/transport</option>
+            <option value="44">Meal prep assistants</option>
+            <option value="45">Street vendors</option>
+        </select>
+        <br>
+
+        <label>Displaced</label>
+        <select name="displaced">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+        <br>
+
+        <label>Debtor</label>
+        <select name="debtor">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+        <br>
+
+        <label>Tuition Fees Up To Date</label>
+        <select name="tuition_up">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+        <br>
+
+        <label>Gender</label>
+        <select name="gender">
+            <option value="0">Female</option>
+            <option value="1">Male</option>
+        </select>
+        <br>
+
+        <label>Scholarship Holder</label>
+        <select name="scholarship">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+        <br>
+
+        <label>Age at Enrollment</label>
+        <input type="text" name="age_enroll" required="required" />
+        <br>
+
+        <label>1st Sem Credited</label>
+        <input type="text" name="cu1_cred" required="required" />
+        <br>
+
+        <label>1st Sem Enrolled</label>
+        <input type="text" name="cu1_enroll" required="required" />
+        <br>
+
+        <label>1st Sem Evaluations</label>
+        <input type="text" name="cu1_eval" required="required" />
+        <br>
+
+        <label>1st Sem Approved</label>
+        <input type="text" name="cu1_approved" required="required" />
+        <br>
+
+        <label>1st Sem Grade</label>
+        <input type="text" name="cu1_grade" required="required" />
+        <br>
+
+        <label>2nd Sem Credited</label>
+        <input type="text" name="cu2_cred" required="required" />
+        <br>
+
+        <label>2nd Sem Enrolled</label>
+        <input type="text" name="cu2_enroll" required="required" />
+        <br>
+
+        <label>2nd Sem Evaluations</label>
+        <input type="text" name="cu2_eval" required="required" />
+        <br>
+
+        <label>2nd Sem Approved</label>
+        <input type="text" name="cu2_approved" required="required" />
+        <br>
+
+        <label>2nd Sem Grade</label>
+        <input type="text" name="cu2_grade" required="required" />
+        <br>
+
+        <button type="submit">Predict Dropout</button>
+    </form>
+
+    <h2>Prediction: {{ predicted_text }}</h2>
+</body>
+
+</html>
